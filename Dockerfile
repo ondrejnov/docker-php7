@@ -83,6 +83,7 @@ COPY apache2.conf /etc/apache2/apache2.conf
 COPY apache2-foreground /usr/local/bin/
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/apache2-foreground
 EXPOSE 80
 WORKDIR /var/www/html
 ENTRYPOINT ["/docker-entrypoint.sh"]
