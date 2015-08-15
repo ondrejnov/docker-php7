@@ -82,6 +82,7 @@ COPY php.ini /usr/local/etc/php/conf.d/php.ini
 COPY apache2.conf /etc/apache2/apache2.conf
 COPY apache2-foreground /usr/local/bin/
 COPY docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
 EXPOSE 80
 WORKDIR /var/www/html
 ENTRYPOINT ["/docker-entrypoint.sh"]
