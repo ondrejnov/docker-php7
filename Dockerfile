@@ -21,7 +21,7 @@ COPY apache2.conf /etc/apache2/apache2.conf
 ENV PHP_EXTRA_BUILD_DEPS apache2-dev
 ENV PHP_EXTRA_CONFIGURE_ARGS --with-apxs2
 
-ENV PHP_VERSION 7.0.0beta3
+ENV PHP_VERSION 7.0.0beta2
 
 RUN apt-get update && apt-get install -y gettext
 
@@ -70,7 +70,6 @@ RUN a2enmod rewrite vhost_alias
 RUN apt-get update && apt-get install -y libmysqlclient-dev locales sqlite3 memcached   libpng12-dev libjpeg-dev libpq-dev imagemagick libxml2-dev \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-	&& docker-php-ext-configure mysqli --with-mysqli=/usr/bin/mysql_config \
 	&& docker-php-ext-install gd mbstring pdo pdo_mysql iconv mysqli gettext pdo_sqlite zip exif soap \
 	&& rm -rvf /usr/local/etc/php/conf.d/docker-php-ext-pdo.ini; \
 	rm -rvf /usr/local/etc/php/conf.d/docker-php-ext-curl.ini; \
