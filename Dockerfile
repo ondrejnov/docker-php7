@@ -62,6 +62,8 @@ RUN buildDeps=" \
 	&& apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o APT::AutoRemove::SuggestsImportant=false $buildDeps \
 	&& make clean
 COPY docker-php-ext-* /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-php-ext-configure
+RUN chmod +x /usr/local/bin/docker-php-ext-install
 
 RUN a2enmod rewrite vhost_alias
 
