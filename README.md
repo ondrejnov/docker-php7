@@ -1,4 +1,4 @@
-# PHP 7.0 beta + Apache PFM
+# PHP 7.0 beta + Apache PFM + Exim4 MTA
 
 ### PHP extensions
 mysqli

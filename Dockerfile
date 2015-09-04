@@ -67,7 +67,7 @@ RUN chmod +x /usr/local/bin/docker-php-ext-install
 
 RUN a2enmod rewrite vhost_alias
 
-RUN apt-get update && apt-get install -y libmysqlclient-dev locales sqlite3 memcached   libpng12-dev libjpeg-dev libpq-dev imagemagick libxml2-dev \
+RUN apt-get update && apt-get install -y mailutils libmysqlclient-dev locales sqlite3 memcached   libpng12-dev libjpeg-dev libpq-dev imagemagick libxml2-dev \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
 	&& docker-php-ext-install gd mbstring pdo pdo_mysql iconv mysqli gettext pdo_sqlite zip exif soap \
@@ -79,6 +79,7 @@ RUN echo cs_CZ.UTF-8 UTF-8  >> /etc/locale.gen \
 	&& echo en_US.UTF-8 UTF-8  > /etc/locale.gen \
 	&& locale-gen
 
+COPY exim.conf /etc/exim4/update-exim4.conf.conf
 COPY php.ini /usr/local/etc/php/conf.d/php.ini
 COPY apache2.conf /etc/apache2/apache2.conf
 COPY apache2-foreground /usr/local/bin/
