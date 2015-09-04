@@ -21,7 +21,7 @@ COPY apache2.conf /etc/apache2/apache2.conf
 ENV PHP_EXTRA_BUILD_DEPS apache2-dev
 ENV PHP_EXTRA_CONFIGURE_ARGS --with-apxs2
 
-ENV PHP_VERSION 7.0.0beta3
+ENV PHP_VERSION 7.0.0RC2
 
 RUN apt-get update && apt-get install -y gettext
 
